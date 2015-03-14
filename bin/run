@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require File.expand_path '../../lib/checkor', __FILE__
+
+Checkor.run $stdout do |check|
+  check.that('https://social.lanpartei.de/').is(:http_up)
+  check.that('http://schnurr.local/').is(:http_up)
+  check.that('http://lanpartei.de/').is(:http_up)
+  check.that('https://mail.lanpartei.de/').is(:http_up)
+  check.that('http://www.into-sa.com/').is(:http_up)
+  check.that('https://puppet.lanpartei.de').is(:http_up_ignoring_ssl_warnings)
+end

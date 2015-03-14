@@ -1,0 +1,6 @@
+0.0.1 Sat Mar 14 04:21:11 CET 2015
+==================================
+
+* check my services with a DSL reminding of an ugly cousin of rspec
+* for other people to be useful, they must for it and add their own lines in
+`bin/run` for now
