@@ -10,6 +10,11 @@ class Checkor
     if block
       builder = Buildor.new
       block.yield builder
+      if out
+        builder.thats.each do |res|
+          out.puts res.to_text
+        end
+      end
       builder.thats
     end
   end

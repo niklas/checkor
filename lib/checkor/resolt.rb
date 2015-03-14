@@ -20,11 +20,38 @@ class Checkor::Resolt
     end
   end
 
+  def to_text
+    ''.tap do |out|
+      out << arg_text
+      out << ' => '
+      if success?
+        out << 'OK'
+      else
+        out << 'FAIL'
+      end
+    end
+  end
+
+  def arg_text
+    case @args.length
+    when 0
+      '[missing args]'
+    when 1
+      @args.first
+    else
+      @args.join(' ')
+    end
+  end
+
   # here come our test
   #
   # may need refactoring ;-)
   def http_up?
-    true
+    require 'open-uri'
+    open @args.first do |h|
+      html = h.read
+      html.include?('<body')
+    end
   end
 
 end
