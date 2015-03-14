@@ -1,9 +1,14 @@
-== CheckOr
+CheckOr
+=======
+
+Synopsis
+--------
 
 An suite to test all of Niklas' services.
 
 Patches welcome.
 
-== Coding guildelines
+Coding guildelines
+------------------
 
 All used classes must sound masculin, muscular or muscoid.
