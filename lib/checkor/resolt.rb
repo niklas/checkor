@@ -47,11 +47,21 @@ class Checkor::Resolt
   #
   # may need refactoring ;-)
   def http_up?
+    uri_content_includes? @args.first, '<body'
+  end
+
+  def http_up_ignoring_ssl_warnings?
+    uri_content_includes? @args.first, '<body', ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE
+  end
+
+  private
+  def uri_content_includes?(uri, content, *opts)
     require 'open-uri'
-    open @args.first do |h|
+    open uri, *opts do |h|
       html = h.read
-      html.include?('<body')
+      html.include?(content)
     end
+
   end
 
 end
