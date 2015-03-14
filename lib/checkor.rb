@@ -10,12 +10,9 @@ class Checkor
     if block
       builder = Buildor.new
       block.yield builder
-      run_builder builder
+      builder.thats
     end
-  end
-
-  def run_builder(builder)
-
   end
 end
 require File.expand_path '../checkor/buildor', __FILE__
+require File.expand_path '../checkor/resolt', __FILE__

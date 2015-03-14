@@ -1,14 +1,15 @@
 class Checkor::Buildor
 
   attr_reader :args
+  attr_reader :thats
+
+  def initialize
+    @thats = []
+  end
 
   def that(*args)
-    @args = args
-    self
+    x = Checkor::Resolt.new(args: args)
+    @thats << x
+    x
   end
-
-  def is(predicate)
-    @predicate = predicate
-  end
-
 end
