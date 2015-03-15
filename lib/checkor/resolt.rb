@@ -1,6 +1,7 @@
 class Checkor::Resolt
   attr_reader :args
   attr_reader :predicate
+  attr_reader :message
   def initialize(opts={})
     @args = opts.fetch(:args)
   end
@@ -28,6 +29,9 @@ class Checkor::Resolt
         out << 'OK'
       else
         out << 'FAIL'
+        if message
+          out << " (#{message})"
+        end
       end
     end
   end
@@ -61,7 +65,9 @@ class Checkor::Resolt
       html = h.read
       html.include?(content)
     end
-
+  rescue StandardError => e
+    @message = e.message
+    return false
   end
 
 end
