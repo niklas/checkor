@@ -13,4 +13,5 @@ Checkor.run $stdout do |check|
   check.that('http://www.schwarzforest.de').is(:http_up)
   check.that('http://www.blackwald.de').is(:http_up)
   check.that('http://blackwald.de').is(:http_up)
+  check.that('http://lanpartei.de/~niklas/index.html').is(:http_up)
 end
